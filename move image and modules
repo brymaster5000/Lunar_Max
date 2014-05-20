@@ -1,0 +1,3 @@
+cp arch/arm/boot/zImage ../Lunar_Max/packages/zImage
+find . -name "*.ko" -exec cp {} ../Lunar_Max/packages \;
+

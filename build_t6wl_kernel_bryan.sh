@@ -2,6 +2,9 @@
 
 # Path to build your kernel
   k=~/android/kernel/Lunar_Max
+# Path for prebuild modules
+  pk=~/android/kernel/Max_modules
+  pkp=~/android/kernel/Max_modules/prima
 # Directory for the any kernel updater
   t=$k/packages
 # Date to add to zip
@@ -23,8 +26,11 @@
           cp -R "$t/META-INF" out/$c
           cp -R "$t/kernel" out/$c
        mkdir -p "out/$c/system/lib/modules/"
+       mkdir -p "out/$c/system/lib/modules/prima"
 
   m=$k/out/$c/system/lib/modules
+  pm=$pk/out/$c/system/lib/modules
+  pmp=$pkp/out/$c/system/lib/modules/prima
   z=$c-$today
 
 TOOLCHAIN=~/android/kernel/arm-eabi-4.7/bin/arm-eabi-
@@ -49,6 +55,10 @@ make -j8 CROSS_COMPILE=$TOOLCHAIN #>> compile.log 2>&1 || exit -1
    cp $k/arch/arm/boot/zImage out/$c/kernel/kernel
    for mo in $(find . -name "*.ko"); do
 		cp "${mo}" $m
+   for mo in $pk(find . -name "*.ko"); do
+		cp "${mo}" $pm
+   for mo in $pkp(find . -name "*.ko"); do
+		cp "${mo}" $pmp
    done
 
 # Build Zip

@@ -28,7 +28,7 @@
   m=$k/out/$c/system/lib/modules
   z=$c-$today
 
-TOOLCHAIN=~/android/kernel/arm-eabi-4.7/bin/arm-eabi-
+TOOLCHAIN=~/android/kernel/arm-eabi-4.8/bin/arm-eabi-
 export ARCH=arm
 export SUBARCH=arm
 

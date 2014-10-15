@@ -28,7 +28,7 @@
 #include <linux/spi/spi.h>
 #include <linux/dma-mapping.h>
 #include <linux/platform_data/qcom_crypto_device.h>
-#include <linux/ion.h>
+#include <linux/msm_ion.h>
 #include <linux/memory.h>
 #include <linux/memblock.h>
 #include <linux/msm_thermal.h>
@@ -437,6 +437,7 @@ static struct ion_cp_heap_pdata cp_mm_t6wl_ion_pdata = {
 	.reusable = FMEM_ENABLED,
 	.mem_is_fmem = FMEM_ENABLED,
 	.fixed_position = FIXED_MIDDLE,
+        .no_nonsecure_alloc = 0,
 };
 
 static struct ion_cp_heap_pdata cp_mfc_t6wl_ion_pdata = {
@@ -445,6 +446,7 @@ static struct ion_cp_heap_pdata cp_mfc_t6wl_ion_pdata = {
 	.reusable = 0,
 	.mem_is_fmem = FMEM_ENABLED,
 	.fixed_position = FIXED_HIGH,
+        .no_nonsecure_alloc = 0,
 };
 
 static struct ion_co_heap_pdata co_t6wl_ion_pdata = {

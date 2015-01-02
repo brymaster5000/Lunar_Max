@@ -20,6 +20,8 @@ delete("/system/bin/pnpmgr");
 ui_print("");
 ui_print("Installing system files");
 package_extract_dir("system", "/system");
+symlink("/system/lib/modules/prima/cfg80211.ko", "/system/lib/modules/cfg80211.ko");
+symlink("/system/lib/modules/prima/prima_wlan.ko", "/system/lib/modules/wlan.ko");
 symlink("/system/lib/modules/moc_platform_mod.ko.3.4.10", "/system/lib/modules/moc_platform_mod.ko");
 symlink("/system/lib/modules/moc_crypto.ko.3.4.10", "/system/lib/modules/moc_crypto.ko");
 symlink("/system/lib/modules/exfat.ko", "/system/lib/modules/texfat.ko");
